@@ -7,10 +7,13 @@
     <rosparam>
       names_group:
         - "arm"
-        #- "positioner"
+        - "positioner"
       num_dof_groups:
         - 6
-        #- 2
+        - 2
+      names_tool_frame:
+        - "ma2010_tool_tip_ang"
+        - "d500_sub_plate"
     </rosparam>
   </node>
 </launch>
