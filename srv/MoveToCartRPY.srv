@@ -1,3 +1,4 @@
+string    name_frame_ref
 float32[] pose_rpy
 float32   max_vel_fact
 float32   max_acc_fact
