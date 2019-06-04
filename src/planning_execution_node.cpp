@@ -6,10 +6,10 @@
 
 #include <vector>
 
-#include "planning_exec_interface/MoveHome.h"
-#include "planning_exec_interface/MoveToCartRPY.h"
-#include "planning_exec_interface/MoveToJoint.h"
-#include "planning_exec_interface/ReplyInt.h"
+#include "moveit_planning_exec_interface/MoveHome.h"
+#include "moveit_planning_exec_interface/MoveToCartRPY.h"
+#include "moveit_planning_exec_interface/MoveToJoint.h"
+#include "moveit_planning_exec_interface/ReplyInt.h"
 
 class PlanningExecCbContainer {
 public:
@@ -26,8 +26,9 @@ public:
     name_tool_frame_ = name_tool_frame;
   }
 
-  bool cbPlanToCartRPY(planning_exec_interface::MoveToCartRPY::Request &req,
-                       planning_exec_interface::MoveToCartRPY::Response &res) {
+  bool cbPlanToCartRPY(
+      moveit_planning_exec_interface::MoveToCartRPY::Request &req,
+      moveit_planning_exec_interface::MoveToCartRPY::Response &res) {
 
     tf::Quaternion tf_q;
     // NOTE The below assignment for RPY is strange:
@@ -60,8 +61,9 @@ public:
     return success_plan_;
   }
 
-  bool cbPlanToJoint(planning_exec_interface::MoveToJoint::Request &req,
-                     planning_exec_interface::MoveToJoint::Response &res) {
+  bool
+  cbPlanToJoint(moveit_planning_exec_interface::MoveToJoint::Request &req,
+                moveit_planning_exec_interface::MoveToJoint::Response &res) {
 
     // FIXME Velocity and acceleration limit does not seem to be working
     //       (changing it does not seem to have any effect on the robot's speed)
@@ -101,8 +103,8 @@ public:
     }
   }
 
-  bool cbExecutePlan(planning_exec_interface::ReplyInt::Request &req,
-                     planning_exec_interface::ReplyInt::Response &res) {
+  bool cbExecutePlan(moveit_planning_exec_interface::ReplyInt::Request &req,
+                     moveit_planning_exec_interface::ReplyInt::Response &res) {
 
     moveit::planning_interface::MoveGroupInterface move_group(name_group_);
     bool success_exec = false;
@@ -122,8 +124,9 @@ public:
     }
   }
 
-  bool cbMoveToJoint(planning_exec_interface::MoveToJoint::Request &req,
-                     planning_exec_interface::MoveToJoint::Response &res) {
+  bool
+  cbMoveToJoint(moveit_planning_exec_interface::MoveToJoint::Request &req,
+                moveit_planning_exec_interface::MoveToJoint::Response &res) {
 
     // FIXME Velocity and acceleration limit does not seem to be working
     //       (changing it does not seem to have any effect on the robot's speed)
@@ -170,8 +173,8 @@ public:
     }
   }
 
-  bool cbMoveHome(planning_exec_interface::MoveHome::Request &req,
-                  planning_exec_interface::MoveHome::Response &res) {
+  bool cbMoveHome(moveit_planning_exec_interface::MoveHome::Request &req,
+                  moveit_planning_exec_interface::MoveHome::Response &res) {
 
     // FIXME Velocity and acceleration limit does not seem to be working
     //       (changing it does not seem to have any effect on the robot's speed)

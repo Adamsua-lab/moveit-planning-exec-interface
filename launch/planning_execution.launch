@@ -1,8 +1,8 @@
 <launch>
   <env name="ROSCONSOLE_CONFIG_FILE"
-       value="$(find planning_exec_interface)/config/logger.conf"/>
+       value="$(find moveit_planning_exec_interface)/config/logger.conf"/>
 
-  <node pkg="planning_exec_interface" name="planning_execution"
+  <node pkg="moveit_planning_exec_interface" name="planning_execution"
         type="planning_execution" output="screen">
     <rosparam>
       names_group:

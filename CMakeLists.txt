@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(planning_exec_interface)
+project(moveit_planning_exec_interface)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -75,7 +75,7 @@ generate_messages(
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES planning_exec_interface
+#  LIBRARIES moveit_planning_exec_interface
   CATKIN_DEPENDS
     roscpp
     moveit_core
